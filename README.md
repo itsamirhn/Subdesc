@@ -1,4 +1,4 @@
-# Subdesc 
+# Subdesc
 A simple utility module for Subtitles
 
 ### Requirements
@@ -35,4 +35,4 @@ subdesc sync <source_file> <subtitle_file>
 ## Caution!
 Subdesc is still in development, and it's not stable yet.
 
-It could delete your input files in case of interruption. So please take a backup and use it at your own risk. 
+It could delete your input files in case of interruption. So please take a backup and use it at your own risk.
