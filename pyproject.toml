@@ -1,0 +1,27 @@
+[project]
+name = "subdesc"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "AmirMohammad Hosseini Nasab", email = "awmirhn@gmail.com"},
+]
+dependencies = [
+    "click>=8.1.7",
+    "ffsubsync>=0.4.25",
+    "charset-normalizer>=3.3.0",
+    "srt>=3.5.3",
+]
+requires-python = ">=3.11,<3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.9.1",
+    "ruff>=0.0.292",
+    "isort>=5.12.0",
+]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
