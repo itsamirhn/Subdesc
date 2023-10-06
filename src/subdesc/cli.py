@@ -67,10 +67,10 @@ def normalize(ctx, subtitle_path):
 @click.argument("language", default="eng")
 @click.pass_context
 def magic(ctx, video_path, subtitle_path, language):
-    normalized_subtitle_path: pathlib.Path = subtitle_path.with_suffix(".normalized")
+    normalized_subtitle_path: pathlib.Path = subtitle_path.with_suffix(".normalized.srt")
     output_path: pathlib.Path = video_path.with_suffix(".merged.mkv")
     ctx.obj.normalizer.normalize(subtitle_path, normalized_subtitle_path)
-    ctx.obj.ffsubsync.sync(video_path, normalized_subtitle_path, subtitle_path)
+    ctx.obj.ffsubsync.sync(video_path, normalized_subtitle_path, normalized_subtitle_path)
     ctx.obj.mkvmerge.mux(video_path, normalized_subtitle_path, output_path, language)
     click.echo(click.style(f"Magic finished Successfully: {output_path}", fg="green"))
     click.echo(click.style("Replacing original video with muxed video", fg="yellow"))
