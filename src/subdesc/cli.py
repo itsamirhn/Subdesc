@@ -31,7 +31,7 @@ def cli(ctx, debug, mkvmerge_bin, ffsubsync_bin):
     ctx.obj.mkvmerge = MKVMerge(mkvmerge_bin)
     ctx.obj.normalizer = SubtitleNormalizer()
     if debug:
-        click.echo(click.style(f"Debug mode is on", fg="yellow"))
+        click.echo(click.style("Debug mode is on", fg="yellow"))
 
 
 @cli.command()
