@@ -50,9 +50,7 @@ def mux(ctx, video_path, subtitle_path, output_path, language):
 @click.pass_context
 def sync(ctx, source_path, subtitle_path):
     ctx.obj.ffsubsync.sync(source_path, subtitle_path, subtitle_path)
-    click.echo(
-        click.style(f"Syncing finished Successfully: {subtitle_path}", fg="green")
-    )
+    click.echo(click.style(f"Syncing finished Successfully: {subtitle_path}", fg="green"))
 
 
 @cli.command()
@@ -60,9 +58,7 @@ def sync(ctx, source_path, subtitle_path):
 @click.pass_context
 def normalize(ctx, subtitle_path):
     ctx.obj.normalizer.normalize(subtitle_path, subtitle_path)
-    click.echo(
-        click.style(f"Normalizing finished Successfully: {subtitle_path}", fg="green")
-    )
+    click.echo(click.style(f"Normalizing finished Successfully: {subtitle_path}", fg="green"))
 
 
 @cli.command()
@@ -76,14 +72,8 @@ def magic(ctx, video_path, subtitle_path, language):
     ctx.obj.normalizer.normalize(subtitle_path, normalized_subtitle_path)
     ctx.obj.ffsubsync.sync(video_path, normalized_subtitle_path, subtitle_path)
     ctx.obj.mkvmerge.mux(video_path, normalized_subtitle_path, output_path, language)
-    click.echo(
-        click.style(
-            f"Magic finished Successfully: {output_path}", fg="green"
-        )
-    )
-    click.echo(
-        click.style("Replacing original video with muxed video", fg="yellow")
-    )
+    click.echo(click.style(f"Magic finished Successfully: {output_path}", fg="green"))
+    click.echo(click.style("Replacing original video with muxed video", fg="yellow"))
     video_path.unlink()
     normalized_subtitle_path.unlink()
     output_path = output_path.rename(video_path.with_suffix(".mkv"))
